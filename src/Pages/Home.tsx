@@ -1,7 +1,17 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import { Box, Container, Grid, Paper, Typography } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, Box, Container, Grid, Paper, Typography } from "@mui/material";
 import PublicIcon from "@mui/icons-material/Public";
+import SecurityIcon from "@mui/icons-material/Security";
+import CalendarIcon from "@mui/icons-material/CalendarMonth";
+import CameraIcon from "@mui/icons-material/CameraAlt";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Marquee from "react-fast-marquee";
+
+import secGuard from "../assets/security-guard.jpeg";
+import lionsgate from "../assets/lionsgate.png";
+import appleLogo from "../assets/Apple_logo_black.png";
+import sonyLogo from "../assets/Sony_logo.png";
 
 function Home() {
   return (
@@ -17,33 +27,66 @@ function Home() {
         <link rel="canonical" href="https://yourdomain.com/" />
       </Helmet>
       <Box component="main">
-        <Container sx={{ height: { xs: "300px", sm: "400px" }, textAlign: "center", pt: 8 }}>
-          {/* Header section */}
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: 2,
-              flexWrap: "wrap", // fallback on small screens
-            }}>
-            <Typography>Logo</Typography>
-            <Typography variant="h1">Cloud6 Group</Typography>
+        <Container
+          maxWidth={false}
+          sx={{
+            height: { xs: "300px", sm: "500px" },
+            textAlign: "center",
+            position: "relative",
+            pt: 8,
+          }}>
+          {/* Image section with overlay */}
+          <>
+            <Box
+              sx={{
+                position: "absolute",
+                inset: 0,
+                backgroundImage: `url(${secGuard})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                zIndex: 0,
+              }}
+            />
+            {/* Dark Overlay */}
+            <Box
+              sx={{
+                position: "absolute",
+                inset: 0,
+                background: "rgba(0, 0, 0, 0.6)", // 0.5 = 50% opacity
+                zIndex: 1,
+              }}
+            />
+          </>
+
+          {/* Header section content */}
+          <Box sx={{ position: "relative", zIndex: 2, textAlign: "center" }}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 2,
+                flexWrap: "wrap", // fallback on small screens
+              }}>
+              <Typography variant="h1" sx={{ fontFamily: "Bungee Inline" }}>
+                Lobo Security
+              </Typography>
+            </Box>
+            <Typography variant="h6" sx={{ pt: 4 }}>
+              Security Patrols Servicing Southern California
+            </Typography>
+            <PublicIcon
+              sx={{
+                fontSize: 60,
+                animation: "rock 1s ease-in-out infinite alternate",
+                "@keyframes rock": {
+                  from: { transform: "rotateY(0deg)" },
+                  to: { transform: "rotateY(360deg)" },
+                },
+                mt: 4,
+              }}
+            />
           </Box>
-          <Typography variant="h6" sx={{ pt: 4 }}>
-            We help enterprises build scalable software
-          </Typography>
-          <PublicIcon
-            sx={{
-              fontSize: 60,
-              animation: "rock 1s ease-in-out infinite alternate",
-              "@keyframes rock": {
-                from: { transform: "rotateY(0deg)" },
-                to: { transform: "rotateY(360deg)" },
-              },
-              mt: 4,
-            }}
-          />
         </Container>
 
         {/* Body section */}
@@ -51,32 +94,99 @@ function Home() {
           <Grid container spacing={4}>
             {/* -------- */}
             <GridCard>
-              <Typography variant="h5" gutterBottom>
-                Our Services
-              </Typography>
+              <Box sx={{ display: "flex", gap: 2, justifyContent: "center" }}>
+                <Typography variant="h5" gutterBottom>
+                  On Call Services
+                </Typography>
+                <SecurityIcon sx={{ mr: 1 }} />
+              </Box>
               <Typography variant="body2">
-                Strategy, design, and development consulting tailored for your business.
+                Our licensed security professionals are available 24/7 to respond quickly to incidents at your property,
+                business, or facility. Whether it’s an alarm response or urgent site coverage, our team ensures peace of
+                mind when you need it most.
               </Typography>
             </GridCard>
             {/* ---------- */}
             <GridCard>
-              <Typography variant="h5" gutterBottom>
-                Web Development
-              </Typography>
+              <Box sx={{ display: "flex", gap: 2, justifyContent: "center" }}>
+                <Typography variant="h5" gutterBottom>
+                  Weekend Services
+                </Typography>
+                <CalendarIcon sx={{ mr: 1 }} />
+              </Box>
               <Typography variant="body2">
-                We build fast, responsive, and accessible websites and applications.
+                We provide reliable weekend and after-hours coverage to protect businesses, warehouses, and commercial
+                properties when they are most vulnerable. Our patrol units perform thorough site checks, deter
+                trespassers, and maintain a visible presence.
               </Typography>
             </GridCard>
             {/* --------- */}
             <GridCard>
-              <Typography variant="h5" gutterBottom>
-                Cloud Architecture
-              </Typography>
+              <Box sx={{ display: "flex", gap: 2, justifyContent: "center" }}>
+                <Typography variant="h5" gutterBottom color="">
+                  Patrol Checks
+                </Typography>
+                <CameraIcon sx={{ mr: 1 }} />
+              </Box>
               <Typography variant="body2">
-                Leverage AWS, CI/CD pipelines, and scalable infrastructure with our consulting.
+                Regular mobile patrols are conducted throughout the night to monitor docks, retail centers, office
+                buildings, and industrial yards. Officers document activity, secure access points, and keep detailed
+                reports to ensure your property remains protected around the clock.
               </Typography>
             </GridCard>
           </Grid>
+        </Box>
+
+        {/* Body Section 2 */}
+        <Container sx={{ paddingY: "20px" }}>
+          <>
+            <Accordion defaultExpanded sx={{ backgroundColor: "rgba(255, 255, 255, 0.7)" }}>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="security-services-offered"
+                id="security-services-offered">
+                <Typography variant="h4">Security Services Offered</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Box sx={{ display: { md: "flex" }, gap: 30 }}>
+                  <ul>
+                    <li>Daily Patrols</li>
+                    <li>Safety Escorts</li>
+                    <li>Business and Parking lot security</li>
+                    <li>Event security specialists</li>
+                  </ul>
+                  <ul>
+                    <li>Gated and HOA Community</li>
+                    <li>Armed Security Guards</li>
+                    <li>Unarmed Security Guards</li>
+                    <li>State Certified Security Specialists</li>
+                  </ul>
+                </Box>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion sx={{ backgroundColor: "rgba(255, 255, 255, 0.7)" }}>
+              <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="areas-we-serve" id="areas-we-serve">
+                <Typography variant="h4">Areas We Serve</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <ul>
+                  <li>Greater Los Angeles County</li>
+                  <li>Long Beach County</li>
+                  <li>Orange County</li>
+                  <li>Riverside County</li>
+                </ul>
+              </AccordionDetails>
+            </Accordion>
+          </>
+        </Container>
+        <Box sx={{ paddingY: 3 }}>
+          <Marquee gradient={false} speed={50}>
+            <Box sx={{ display: "flex", gap: 10 }}>
+              <img src={appleLogo} height="150" />
+              <img src={lionsgate} height="150" />
+              <img src={sonyLogo} height="150" />
+            </Box>
+          </Marquee>
         </Box>
       </Box>
     </>

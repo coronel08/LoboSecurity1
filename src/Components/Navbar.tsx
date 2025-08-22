@@ -2,8 +2,8 @@ import * as React from "react";
 import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, Button, MenuItem } from "@mui/material";
 
 import MenuIcon from "@mui/icons-material/Menu";
-import AdbIcon from "@mui/icons-material/Adb";
 import theme, { COLORS } from "../theme";
+import logo from "../assets/logo.png";
 
 const pages = ["Home", "Services", "About"];
 
@@ -25,7 +25,8 @@ function Navbar() {
           <Toolbar disableGutters>
             {/* Common navbar section */}
             <>
-              <AdbIcon sx={{ mr: 1 }} />
+              {/* <AdbIcon sx={{ mr: 1 }} /> */}
+              {/* <img src={logo} /> */}
               <Typography
                 variant="h6"
                 noWrap
@@ -34,18 +35,19 @@ function Navbar() {
                 sx={{
                   mr: 2,
                   flexGrow: 1,
-                  fontFamily: "monospace",
+                  // fontFamily: "orbitron",
+                  fontFamily: "Bungee Inline",
                   fontWeight: 700,
                   letterSpacing: ".3rem",
                   color: "inherit",
                   textDecoration: "none",
                 }}>
-                LOGO1
+                Lobo Security
               </Typography>
             </>
             {/* Desktop Navbar Section*/}
             <>
-              <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+              <Box sx={{ flexGrow: .2, display: { xs: "none", md: "flex" } }}>
                 {pages.map(page => (
                   <Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, color: "white", display: "block" }}>
                     {page}
