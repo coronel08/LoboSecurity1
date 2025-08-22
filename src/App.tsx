@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router";
 import Home from "./Pages/Home";
 import { Box, ThemeProvider } from "@mui/material";
 import theme from "./theme";
-import { BottomNavigation } from "@mui/material";
+// import { BottomNavigation } from "@mui/material";
 import Footer from "./Components/Footer";
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
           <Navbar />
           <Box sx={{ flexGrow: 1 }}>
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="*" element={<Home />} />
             </Routes>
           </Box>
           <Footer />

@@ -2,8 +2,8 @@ import * as React from "react";
 import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, Button, MenuItem } from "@mui/material";
 
 import MenuIcon from "@mui/icons-material/Menu";
-import theme, { COLORS } from "../theme";
-import logo from "../assets/logo.png";
+// import theme, { COLORS } from "../theme";
+// import logo from "../assets/logo.png";
 
 const pages = ["Home", "Services", "About"];
 

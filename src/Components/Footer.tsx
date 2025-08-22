@@ -1,5 +1,4 @@
 import { BottomNavigation, Typography } from "@mui/material";
-import React from "react";
 
 function Footer() {
   return (
