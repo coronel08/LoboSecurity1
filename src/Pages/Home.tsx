@@ -8,7 +8,7 @@ import CameraIcon from "@mui/icons-material/CameraAlt";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Marquee from "react-fast-marquee";
 
-import secGuard from "../assets/security-guard.jpeg";
+import secGuard from "../assets/security.png";
 import lionsgate from "../assets/lionsgate.png";
 import appleLogo from "../assets/Apple_logo_black.png";
 import sonyLogo from "../assets/Sony_logo.png";
@@ -52,7 +52,7 @@ function Home() {
               sx={{
                 position: "absolute",
                 inset: 0,
-                background: "rgba(0, 0, 0, 0.6)", // 0.5 = 50% opacity
+                background: "rgba(0, 0, 0, 0.7)", // 0.5 = 50% opacity
                 zIndex: 1,
               }}
             />
