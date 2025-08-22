@@ -52,7 +52,11 @@ function Home() {
               sx={{
                 position: "absolute",
                 inset: 0,
-                background: "rgba(0, 0, 0, 0.7)", // 0.5 = 50% opacity
+                // background: "rgba(0, 0, 0, 0.7)", // 0.5 = 50% opacity
+                backgroundColor: {
+                  xs: "rgba(0, 0, 0, 0.4)", // lighter on mobile
+                  md: "rgba(0, 0, 0, 0.7)", // darker on desktop
+                },
                 zIndex: 1,
               }}
             />
