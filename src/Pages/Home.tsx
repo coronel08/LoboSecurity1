@@ -1,6 +1,16 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import { Accordion, AccordionDetails, AccordionSummary, Box, Container, Grid, Paper, Typography } from "@mui/material";
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Box,
+  Container,
+  Divider,
+  Grid,
+  Paper,
+  Typography,
+} from "@mui/material";
 import PublicIcon from "@mui/icons-material/Public";
 import SecurityIcon from "@mui/icons-material/Security";
 import CalendarIcon from "@mui/icons-material/CalendarMonth";
@@ -192,6 +202,34 @@ function Home() {
             </Box>
           </Marquee>
         </Box>
+      </Box>
+
+      {/* Contact Us */}
+      <Box component="section" sx={{ background: "white", color: "darkblue", px: { xs: 3, sm: 2, lg: 20 }, py: 5 }}>
+        <Divider />
+        <Container>
+          <Box sx={{ display: { md: "flex" }, padding: 3, gap: 10, alignItems: "center", justifyContent: "center" }}>
+            <Box sx={{ display: "flex", flexDirection: "column" }}>
+              <Typography variant="h4">Info</Typography>
+              <Box sx={{ width: "300px", height: "300px", border: "2px solid black" }}>
+                <p>Test</p>
+              </Box>
+            </Box>
+            <Box sx={{ display: "flex", flexDirection: "column" }}>
+              <Typography variant="h4">Contact Us</Typography>
+              <Box sx={{ width: "300px", height: "300px", border: "2px solid black" }}>
+                <p>Test</p>
+              </Box>
+            </Box>
+            <Box sx={{ display: "flex", flexDirection: "column" }}>
+              <Typography variant="h4">Map</Typography>
+              <Box sx={{ width: "300px", height: "300px", border: "2px solid black" }}>
+                <p>Test</p>
+              </Box>
+            </Box>
+          </Box>
+        </Container>
+        <Divider />
       </Box>
     </>
   );
