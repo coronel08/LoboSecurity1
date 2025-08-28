@@ -208,7 +208,7 @@ function Home() {
       <Box component="section" sx={{ background: "white", color: "darkblue", px: { xs: 3, sm: 2, lg: 20 }, py: 5 }}>
         <Divider />
         <Container>
-          <Box sx={{ display: { md: "flex" }, padding: 3, gap: 10, alignItems: "center", justifyContent: "center" }}>
+          <Box sx={{ display: { md: "flex" }, flexDirection:{xs:'column', lg:'row'}, padding: 3, gap: 10, alignItems: "center", justifyContent: "center" }}>
             <Box sx={{ display: "flex", flexDirection: "column" }}>
               <Typography variant="h4">Info</Typography>
               <Box sx={{ width: "300px", height: "300px", border: "2px solid black" }}>
