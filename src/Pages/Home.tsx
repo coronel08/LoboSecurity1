@@ -26,6 +26,8 @@ import lionsgate from "../assets/lionsgate.png";
 import appleLogo from "../assets/Apple_logo_black.png";
 import sonyLogo from "../assets/Sony_logo.png";
 
+import "leaflet/dist/leaflet.css";
+
 function Home() {
   return (
     <>
@@ -276,8 +278,11 @@ function Home() {
                 <MapIcon sx={{ mr: 1 }} /> Map
               </Typography>
               <Box sx={{ width: { xs: "330px", md: "600px" }, height: "300px", border: "2px solid black" }}>
-                <MapContainer style={{ height: "100%", width: "100%" }}>
-                  <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+                <MapContainer style={{ height: "100%", width: "100%" }} center={[33.743, -118.2926]} zoom={16}>
+                  <TileLayer
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    // attribution="&copy; OpenStreetMap contributors"
+                  />
                   <Marker position={[33.743, -118.2926]}>
                     <Popup>Los Angeles marker!</Popup>
                   </Marker>
