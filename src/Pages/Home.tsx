@@ -177,7 +177,7 @@ function Home() {
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="security-services-offered"
                 id="security-services-offered">
-                <Typography variant="h4">Security Services Offered</Typography>
+                <Typography variant="h4">Services Offered</Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Box sx={{ display: { md: "flex" }, gap: 30 }}>
