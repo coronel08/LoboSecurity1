@@ -22,7 +22,7 @@ import Marquee from "react-fast-marquee";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
-import secGuard from "../assets/security.png";
+import secGuard from "../assets/secCouple.jpg";
 import lionsgate from "../assets/lionsgate.png";
 import appleLogo from "../assets/Apple_logo_black.png";
 import sonyLogo from "../assets/Sony_logo.png";
@@ -44,20 +44,34 @@ function Home() {
         <Container
           maxWidth={false}
           sx={{
-            height: { xs: "300px", sm: "500px" },
+            height: { xs: "300px", sm: "500px", lg: "650px" },
             textAlign: "center",
             position: "relative",
             pt: 8,
           }}>
           {/* Image section with overlay */}
           <>
-            <Box
+            {/* <Box
               sx={{
                 position: "absolute",
                 inset: 0,
                 backgroundImage: `url(${secGuard})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
+                zIndex: 0,
+              }}
+            /> */}
+            <Box
+              component="img"
+              src={secGuard}
+              alt="Security"
+              sx={{
+                position: "absolute",
+                inset: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: { xs: "center", md: "top" }, // fine-grained positioning
                 zIndex: 0,
               }}
             />
@@ -263,11 +277,8 @@ function Home() {
                 <MapIcon sx={{ mr: 1 }} /> Map
               </Typography>
               <Box sx={{ width: { xs: "330px", md: "600px" }, height: "300px", border: "2px solid black" }}>
-                <MapContainer center={[33.743, -118.2926]} zoom={13} style={{ height: "100%", width: "100%" }}>
-                  <TileLayer
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    attribution="&copy; OpenStreetMap contributors"
-                  />
+                <MapContainer style={{ height: "100%", width: "100%" }}>
+                  <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                   <Marker position={[33.743, -118.2926]}>
                     <Popup>Los Angeles marker!</Popup>
                   </Marker>
