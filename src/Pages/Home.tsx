@@ -20,7 +20,6 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import MapIcon from "@mui/icons-material/Map";
 import Marquee from "react-fast-marquee";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
 
 import secGuard from "../assets/secCouple.jpg";
 import lionsgate from "../assets/lionsgate.png";
@@ -91,7 +90,7 @@ function Home() {
           </>
 
           {/* Header section content */}
-          <Box sx={{ position: "relative", zIndex: 2, textAlign: "center" }}>
+          <Box sx={{ position: "relative", zIndex: 2, textAlign: "center", color: "white" }}>
             <Box
               sx={{
                 display: "flex",

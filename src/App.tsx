@@ -21,7 +21,7 @@ function App() {
           <Navbar />
           <Box sx={{ flexGrow: 1 }}>
             <Routes>
-              <Route path="*" element={<Home />} />
+              <Route path="/" element={<Home />} />
             </Routes>
           </Box>
           <Footer />
