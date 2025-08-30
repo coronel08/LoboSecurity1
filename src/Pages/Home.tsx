@@ -16,7 +16,11 @@ import SecurityIcon from "@mui/icons-material/Security";
 import CalendarIcon from "@mui/icons-material/CalendarMonth";
 import CameraIcon from "@mui/icons-material/CameraAlt";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import PhoneIcon from "@mui/icons-material/Phone";
+import MapIcon from "@mui/icons-material/Map";
 import Marquee from "react-fast-marquee";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
 
 import secGuard from "../assets/security.png";
 import lionsgate from "../assets/lionsgate.png";
@@ -36,7 +40,7 @@ function Home() {
         <meta property="og:url" content="https://yourdomain.com" />
         <link rel="canonical" href="https://yourdomain.com/" />
       </Helmet>
-      <Box component="main">
+      <Box id="home" component="main">
         <Container
           maxWidth={false}
           sx={{
@@ -171,8 +175,8 @@ function Home() {
                   </ul>
                   <ul>
                     <li>Gated and HOA Community</li>
-                    <li>Armed Security Guards</li>
-                    <li>Unarmed Security Guards</li>
+                    <li>Armed/Unarmed Security Guards</li>
+                    <li>Shopping Centers/ Warehouses/ Cargo Yard Patrols </li>
                     <li>State Certified Security Specialists</li>
                   </ul>
                 </Box>
@@ -183,12 +187,17 @@ function Home() {
                 <Typography variant="h4">Areas We Serve</Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <ul>
-                  <li>Greater Los Angeles County</li>
-                  <li>Long Beach County</li>
-                  <li>Orange County</li>
-                  <li>Riverside County</li>
-                </ul>
+                <Box sx={{ display: { md: "flex" }, gap: 30 }}>
+                  <ul>
+                    <li>Greater Los Angeles County</li>
+                    <li>Long Beach County</li>
+                    <li>Orange County</li>
+                  </ul>
+                  <ul>
+                    <li>Riverside County</li>
+                    <li>San Diego County</li>
+                  </ul>
+                </Box>
               </AccordionDetails>
             </Accordion>
           </>
@@ -205,26 +214,64 @@ function Home() {
       </Box>
 
       {/* Contact Us */}
-      <Box component="section" sx={{ background: "white", color: "darkblue", px: { xs: 3, sm: 2, lg: 20 }, py: 5 }}>
+      <Box
+        id="contact"
+        component="section"
+        sx={{ background: "white", color: "darkblue", px: { xs: 0, sm: 2, lg: 20 }, py: 5 }}>
         <Divider />
         <Container>
-          <Box sx={{ display: { md: "flex" }, flexDirection:{xs:'column', lg:'row'}, padding: 3, gap: 10, alignItems: "center", justifyContent: "center" }}>
+          <Box
+            sx={{
+              display: { md: "flex" },
+              flexDirection: { xs: "column", lg: "row" },
+              padding: 2,
+              // gap: 10,
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}>
             <Box sx={{ display: "flex", flexDirection: "column" }}>
-              <Typography variant="h4">Info</Typography>
-              <Box sx={{ width: "300px", height: "300px", border: "2px solid black" }}>
-                <p>Test</p>
+              <Typography variant="h4">
+                <PhoneIcon sx={{ mr: 1 }} /> Contact Us
+              </Typography>
+              <Box sx={{ maxWidth: "350px", height: "auto" }}>
+                <p>
+                  <span style={{ fontWeight: "bold" }}>Address: </span>
+                  <a
+                    href="https://www.google.com/maps?q=336+N+Gaffey+St+Floor+2,+San+Pedro,+CA+90731"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: "inherit", textDecoration: "none" }}>
+                    336 N Gaffey St Floor 2, San Pedro, CA 90731
+                  </a>
+                </p>
+                <p>
+                  <span style={{ fontWeight: "bold" }}>Phone Number: </span>
+                  <a href="tel:+14244775287" style={{ color: "inherit", textDecoration: "none" }}>
+                    (424) 477-5287
+                  </a>
+                </p>
+                <p>
+                  <span style={{ fontWeight: "bold" }}>Email: </span>
+                  <a href="mailto:lobo24hrservices@gmail.com" style={{ color: "inherit", textDecoration: "none" }}>
+                    lobo24hrservices@gmail.com
+                  </a>
+                </p>
               </Box>
             </Box>
             <Box sx={{ display: "flex", flexDirection: "column" }}>
-              <Typography variant="h4">Contact Us</Typography>
-              <Box sx={{ width: "300px", height: "300px", border: "2px solid black" }}>
-                <p>Test</p>
-              </Box>
-            </Box>
-            <Box sx={{ display: "flex", flexDirection: "column" }}>
-              <Typography variant="h4">Map</Typography>
-              <Box sx={{ width: "300px", height: "300px", border: "2px solid black" }}>
-                <p>Test</p>
+              <Typography variant="h4">
+                <MapIcon sx={{ mr: 1 }} /> Map
+              </Typography>
+              <Box sx={{ width: { xs: "330px", md: "600px" }, height: "300px", border: "2px solid black" }}>
+                <MapContainer center={[33.743, -118.2926]} zoom={13} style={{ height: "100%", width: "100%" }}>
+                  <TileLayer
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    attribution="&copy; OpenStreetMap contributors"
+                  />
+                  <Marker position={[33.743, -118.2926]}>
+                    <Popup>Los Angeles marker!</Popup>
+                  </Marker>
+                </MapContainer>
               </Box>
             </Box>
           </Box>
