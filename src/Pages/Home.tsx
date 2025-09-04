@@ -33,11 +33,14 @@ function Home() {
     <>
       <Helmet>
         <title>Lobo Security</title>
-        <meta name="description" content="Security Patrol services in Greater Los Angeles, Orange County, San Diego." />
+        <meta
+          name="description"
+          content="patrol security, on-call security, event security, Southern California, Los Angeles, Orange County, San Diego."
+        />
         <meta property="og:title" content="Lobo Security" />
         <meta
           property="og:description"
-          content="Security Patrol services in Greater Los Angeles, Orange County, San Diego."
+          content="patrol security, on-call security, event security, Southern California, Los Angeles, Orange County, San Diego."
         />
         {/* <meta property="og:image" content="https://yourdomain.com/banner.png" /> */}
         <meta property="og:type" content="website" />
