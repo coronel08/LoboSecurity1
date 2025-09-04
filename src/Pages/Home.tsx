@@ -176,33 +176,38 @@ function Home() {
         {/* Body Section 2 */}
         <Container sx={{ paddingY: "60px" }}>
           <>
-            <Box
-              sx={{
-                backgroundColor: "rgba(255, 255, 255, 0.7)",
-                padding: "20px",
-                display: "flex",
-                alignContent: "center",
-                justifyContent: "center",
-                flexDirection: "column",
-                gap: "20px",
-                color: "#000000de",
-              }}>
-              <Typography variant="h3">About Us:</Typography>
-              <Typography>
-                Lobo Security was founded in 2017 by David Guerra, a seasoned professional with over 20 years of
-                hands-on experience in the security industry. After decades of working in the field, David established
-                Lobo Security with a clear mission: to deliver reliable, professional, and community-focused security
-                services tailored to the unique needs of every client.
-              </Typography>
-              <Typography>
-                Our team is dedicated to protecting businesses,communities, and events throughout Southern California.
-                With a strong emphasis on professionalism, responsiveness, and trust, Lobo Security has become a
-                dependable partner for companies and property owners seeking peace of mind. Whether it’s
-                around-the-clock patrols, event coverage, or specialized security solutions, we stand ready to keep your
-                people and property safe.
-              </Typography>
-            </Box>
             <Accordion defaultExpanded sx={{ backgroundColor: "rgba(255, 255, 255, 0.7)" }}>
+              <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="about-us" id="about-us">
+                <Typography variant="h3">About Us:</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignContent: "center",
+                    justifyContent: "center",
+                    flexDirection: "column",
+                    gap: "20px",
+                  }}>
+                  <Typography>
+                    Lobo Security was founded in 2017 by David Guerra, a seasoned professional with over 20 years of
+                    hands-on experience in the security industry. After decades of working in the field, David
+                    established Lobo Security with a clear mission: to deliver reliable, professional, and
+                    community-focused security services tailored to the unique needs of every client.
+                  </Typography>
+                  <Typography>
+                    Our team is dedicated to protecting businesses,communities, and events throughout Southern
+                    California. With a strong emphasis on professionalism, responsiveness, and trust, Lobo Security has
+                    become a dependable partner for companies and property owners seeking peace of mind.
+                  </Typography>
+                  <Typography>
+                    Whether it’s around-the-clock patrols, event coverage, or specialized security solutions, we stand
+                    ready to keep your people and property safe.
+                  </Typography>
+                </Box>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion sx={{ backgroundColor: "rgba(255, 255, 255, 0.7)" }}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="security-services-offered"
