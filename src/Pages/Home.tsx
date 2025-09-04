@@ -32,11 +32,14 @@ function Home() {
   return (
     <>
       <Helmet>
-        <title>Cloud 6 Software Development</title>
-        <meta name="description" content="Modern web and software development consulting." />
-        <meta property="og:title" content="Cloud6 Software Development" />
-        <meta property="og:description" content="Full-stack and cloud-native software solutions." />
-        <meta property="og:image" content="https://yourdomain.com/banner.png" />
+        <title>Lobo Security</title>
+        <meta name="description" content="Security Patrol services in Greater Los Angeles, Orange County, San Diego." />
+        <meta property="og:title" content="Lobo Security" />
+        <meta
+          property="og:description"
+          content="Security Patrol services in Greater Los Angeles, Orange County, San Diego."
+        />
+        {/* <meta property="og:image" content="https://yourdomain.com/banner.png" /> */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://yourdomain.com" />
         <link rel="canonical" href="https://yourdomain.com/" />
@@ -171,14 +174,40 @@ function Home() {
         </Box>
 
         {/* Body Section 2 */}
-        <Container sx={{ paddingY: "20px" }}>
+        <Container sx={{ paddingY: "60px" }}>
           <>
+            <Box
+              sx={{
+                backgroundColor: "rgba(255, 255, 255, 0.7)",
+                padding: "20px",
+                display: "flex",
+                alignContent: "center",
+                justifyContent: "center",
+                flexDirection: "column",
+                gap: "20px",
+                color: "#000000de",
+              }}>
+              <Typography variant="h3">About Us:</Typography>
+              <Typography>
+                Lobo Security was founded in 2017 by David Guerra, a seasoned professional with over 20 years of
+                hands-on experience in the security industry. After decades of working in the field, David established
+                Lobo Security with a clear mission: to deliver reliable, professional, and community-focused security
+                services tailored to the unique needs of every client.
+              </Typography>
+              <Typography>
+                Our team is dedicated to protecting businesses,communities, and events throughout Southern California.
+                With a strong emphasis on professionalism, responsiveness, and trust, Lobo Security has become a
+                dependable partner for companies and property owners seeking peace of mind. Whether it’s
+                around-the-clock patrols, event coverage, or specialized security solutions, we stand ready to keep your
+                people and property safe.
+              </Typography>
+            </Box>
             <Accordion defaultExpanded sx={{ backgroundColor: "rgba(255, 255, 255, 0.7)" }}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="security-services-offered"
                 id="security-services-offered">
-                <Typography variant="h4">Services Offered</Typography>
+                <Typography variant="h3">Services Offered:</Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Box sx={{ display: { md: "flex" }, gap: 30 }}>
@@ -199,7 +228,7 @@ function Home() {
             </Accordion>
             <Accordion sx={{ backgroundColor: "rgba(255, 255, 255, 0.7)" }}>
               <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="areas-we-serve" id="areas-we-serve">
-                <Typography variant="h4">Areas We Serve</Typography>
+                <Typography variant="h3">Areas We Serve:</Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Box sx={{ display: { md: "flex" }, gap: 30 }}>
@@ -217,7 +246,7 @@ function Home() {
             </Accordion>
           </>
         </Container>
-        <Box sx={{ paddingY: 3 }}>
+        <Box sx={{ paddingY: 10 }}>
           <Marquee gradient={false} speed={50}>
             <Box sx={{ display: "flex", gap: 10 }}>
               <img src={appleLogo} height="150" />
@@ -284,7 +313,10 @@ function Home() {
                     // attribution="&copy; OpenStreetMap contributors"
                   />
                   <Marker position={[33.743, -118.2926]}>
-                    <Popup>Los Angeles marker!</Popup>
+                    <Popup>
+                      <h5>Lobo Security</h5>
+                      <p>336 N Gaffey St Floor 2, San Pedro, CA 90731</p>
+                    </Popup>
                   </Marker>
                 </MapContainer>
               </Box>
