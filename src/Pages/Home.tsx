@@ -1,32 +1,21 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Box,
-  Container,
-  Divider,
-  Grid,
-  Paper,
-  Typography,
-} from "@mui/material";
+import { Box, Container, Divider, Grid, Paper, Typography } from "@mui/material";
 import PublicIcon from "@mui/icons-material/Public";
 import SecurityIcon from "@mui/icons-material/Security";
 import CalendarIcon from "@mui/icons-material/CalendarMonth";
 import CameraIcon from "@mui/icons-material/CameraAlt";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import PhoneIcon from "@mui/icons-material/Phone";
 import MapIcon from "@mui/icons-material/Map";
 import Marquee from "react-fast-marquee";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
 
 import secGuard from "../assets/secCouple.jpg";
 import lionsgate from "../assets/lionsgate.png";
 import appleLogo from "../assets/Apple_logo_black.png";
 import sonyLogo from "../assets/Sony_logo.png";
-
-import "leaflet/dist/leaflet.css";
+import AccordionCard from "../Components/AccordionCard";
 
 function Home() {
   return (
@@ -50,12 +39,8 @@ function Home() {
       <Box id="home" component="main">
         <Container
           maxWidth={false}
-          sx={{
-            height: { xs: "300px", sm: "500px", lg: "650px" },
-            textAlign: "center",
-            position: "relative",
-            pt: 8,
-          }}>
+          className="header-content"
+          sx={{ height: { xs: "300px", sm: "500px", lg: "650px" } }}>
           {/* Image section with overlay */}
           <>
             {/* <Box
@@ -72,41 +57,19 @@ function Home() {
               component="img"
               src={secGuard}
               alt="Security"
-              sx={{
-                position: "absolute",
-                inset: 0,
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                objectPosition: { xs: "center", md: "top" }, // fine-grained positioning
-                zIndex: 0,
-              }}
+              className="main-body"
+              sx={{ objectPosition: { xs: "center", md: "top" } }} // fine-grained positioning
             />
             {/* Dark Overlay */}
             <Box
-              sx={{
-                position: "absolute",
-                inset: 0,
-                // background: "rgba(0, 0, 0, 0.7)", // 0.5 = 50% opacity
-                backgroundColor: {
-                  xs: "rgba(0, 0, 0, 0.4)", // lighter on mobile
-                  md: "rgba(0, 0, 0, 0.7)", // darker on desktop
-                },
-                zIndex: 1,
-              }}
+              className="main-body-overlay"
+              sx={{ backgroundColor: { xs: "rgba(0, 0, 0, 0.4)", md: "rgba(0, 0, 0, 0.7)" } }}
             />
           </>
 
           {/* Header section content */}
-          <Box sx={{ position: "relative", zIndex: 2, textAlign: "center", color: "white" }}>
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: 2,
-                flexWrap: "wrap", // fallback on small screens
-              }}>
+          <Box className="header-container">
+            <Box className="header-text-container">
               <Typography variant="h1" sx={{ fontFamily: "Bungee Inline" }}>
                 Lobo Security
               </Typography>
@@ -114,17 +77,7 @@ function Home() {
             <Typography variant="h6" sx={{ pt: 4 }}>
               Security Patrols Servicing Southern California
             </Typography>
-            <PublicIcon
-              sx={{
-                fontSize: 60,
-                animation: "rock 1s ease-in-out infinite alternate",
-                "@keyframes rock": {
-                  from: { transform: "rotateY(0deg)" },
-                  to: { transform: "rotateY(360deg)" },
-                },
-                mt: 4,
-              }}
-            />
+            <PublicIcon className="icon-rock" sx={{ fontSize: 60 }} />
           </Box>
         </Container>
 
@@ -133,7 +86,7 @@ function Home() {
           <Grid container spacing={4}>
             {/* -------- */}
             <GridCard>
-              <Box sx={{ display: "flex", gap: 2, justifyContent: "center" }}>
+              <Box className="card-header">
                 <Typography variant="h5" gutterBottom>
                   On Call Services
                 </Typography>
@@ -147,7 +100,7 @@ function Home() {
             </GridCard>
             {/* ---------- */}
             <GridCard>
-              <Box sx={{ display: "flex", gap: 2, justifyContent: "center" }}>
+              <Box className="card-header">
                 <Typography variant="h5" gutterBottom>
                   Weekend Services
                 </Typography>
@@ -161,7 +114,7 @@ function Home() {
             </GridCard>
             {/* --------- */}
             <GridCard>
-              <Box sx={{ display: "flex", gap: 2, justifyContent: "center" }}>
+              <Box className="card-header">
                 <Typography variant="h5" gutterBottom color="">
                   Patrol Checks
                 </Typography>
@@ -177,81 +130,63 @@ function Home() {
         </Box>
 
         {/* Body Section 2 */}
-        <Container sx={{ paddingY: "60px" }}>
+        <Container className="body2-container">
           <>
-            <Accordion defaultExpanded sx={{ backgroundColor: "rgba(255, 255, 255, 0.7)" }}>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="about-us" id="about-us">
-                <Typography variant="h3">About Us:</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignContent: "center",
-                    justifyContent: "center",
-                    flexDirection: "column",
-                    gap: "20px",
-                  }}>
-                  <Typography>
-                    Lobo Security was founded in 2017 by David Guerra, a seasoned professional with over 20 years of
-                    hands-on experience in the security industry. After decades of working in the field, David
-                    established Lobo Security with a clear mission: to deliver reliable, professional, and
-                    community-focused security services tailored to the unique needs of every client.
-                  </Typography>
-                  <Typography>
-                    Our team is dedicated to protecting businesses,communities, and events throughout Southern
-                    California. With a strong emphasis on professionalism, responsiveness, and trust, Lobo Security has
-                    become a dependable partner for companies and property owners seeking peace of mind.
-                  </Typography>
-                  <Typography>
-                    Whether it’s around-the-clock patrols, event coverage, or specialized security solutions, we stand
-                    ready to keep your people and property safe.
-                  </Typography>
-                </Box>
-              </AccordionDetails>
-            </Accordion>
-            <Accordion sx={{ backgroundColor: "rgba(255, 255, 255, 0.7)" }}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="security-services-offered"
-                id="security-services-offered">
-                <Typography variant="h3">Services Offered:</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Box sx={{ display: { md: "flex" }, gap: 30 }}>
-                  <ul>
-                    <li>Daily Patrols</li>
-                    <li>Safety Escorts</li>
-                    <li>Business and Parking lot security</li>
-                    <li>Event security specialists</li>
-                  </ul>
-                  <ul>
-                    <li>Gated and HOA Community</li>
-                    <li>Armed/Unarmed Security Guards</li>
-                    <li>Shopping Centers/ Warehouses/ Cargo Yard Patrols </li>
-                    <li>State Certified Security Specialists</li>
-                  </ul>
-                </Box>
-              </AccordionDetails>
-            </Accordion>
-            <Accordion sx={{ backgroundColor: "rgba(255, 255, 255, 0.7)" }}>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="areas-we-serve" id="areas-we-serve">
-                <Typography variant="h3">Areas We Serve:</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Box sx={{ display: { md: "flex" }, gap: 30 }}>
-                  <ul>
-                    <li>Greater Los Angeles County</li>
-                    <li>Long Beach County</li>
-                    <li>Orange County</li>
-                  </ul>
-                  <ul>
-                    <li>Riverside County</li>
-                    <li>San Diego County</li>
-                  </ul>
-                </Box>
-              </AccordionDetails>
-            </Accordion>
+            <AccordionCard defaultExpanded={true} title="About Us:">
+              <Box
+                sx={{
+                  display: "flex",
+                  alignContent: "center",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  gap: "30px",
+                }}>
+                <Typography>
+                  Lobo Security was founded in 2017 by David Guerra, a seasoned professional with over 20 years of
+                  hands-on experience in the security industry. After decades of working in the field, David established
+                  Lobo Security with a clear mission: to deliver reliable, professional, and community-focused security
+                  services tailored to the unique needs of every client.
+                </Typography>
+                <Typography>
+                  Our team is dedicated to protecting businesses,communities, and events throughout Southern California.
+                  With a strong emphasis on professionalism, responsiveness, and trust, Lobo Security has become a
+                  dependable partner for companies and property owners seeking peace of mind.
+                </Typography>
+                <Typography>
+                  Whether it’s around-the-clock patrols, event coverage, or specialized security solutions, we stand
+                  ready to keep your people and property safe.
+                </Typography>
+              </Box>
+            </AccordionCard>
+            <AccordionCard defaultExpanded={false} title="Services Offered:">
+              <Box sx={{ display: { md: "flex" }, gap: 30 }}>
+                <ul>
+                  <li>Daily Patrols</li>
+                  <li>Safety Escorts</li>
+                  <li>Business and Parking lot security</li>
+                  <li>Event security specialists</li>
+                </ul>
+                <ul>
+                  <li>Gated and HOA Community</li>
+                  <li>Armed/Unarmed Security Guards</li>
+                  <li>Shopping Centers/ Warehouses/ Cargo Yard Patrols </li>
+                  <li>State Certified Security Specialists</li>
+                </ul>
+              </Box>
+            </AccordionCard>
+            <AccordionCard defaultExpanded={false} title="Areas We Serve:">
+              <Box sx={{ display: { md: "flex" }, gap: 30 }}>
+                <ul>
+                  <li>Greater Los Angeles County</li>
+                  <li>Long Beach County</li>
+                  <li>Orange County</li>
+                </ul>
+                <ul>
+                  <li>Riverside County</li>
+                  <li>San Diego County</li>
+                </ul>
+              </Box>
+            </AccordionCard>
           </>
         </Container>
         <Box sx={{ paddingY: 10 }}>
@@ -346,16 +281,7 @@ type GridCardProps = {
 function GridCard({ children }: GridCardProps) {
   return (
     <Grid size={{ xs: 12, sm: 6, lg: 4 }}>
-      <Paper
-        elevation={3}
-        sx={{
-          p: 4,
-          textAlign: "center",
-          flexGrow: 1,
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center", // optional: center content vertically
-        }}>
+      <Paper elevation={3} className="grid-card">
         {children}
       </Paper>
     </Grid>
