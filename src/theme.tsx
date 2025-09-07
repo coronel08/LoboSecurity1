@@ -6,6 +6,12 @@ export const COLORS = {
 
 const theme = createTheme({
   typography: {
+    fontFamily: [
+      "Inter", // primary
+      "Roboto", // fallback
+      "Arial", // fallback
+      "sans-serif", // system fallback
+    ].join(","),
     h1: {
       fontWeight: 700,
       fontSize: "2.5rem", // base (mobile)

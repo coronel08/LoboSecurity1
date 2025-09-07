@@ -31,9 +31,11 @@ html {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
@@ -48,7 +50,7 @@ html {
   z-index: 0;
 }
 
-.main-body-overlay{
+.main-body-overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
@@ -56,20 +58,20 @@ html {
 
 
 /* ------------------- header section ------------------------ */
-.header-content{
+.header-content {
   text-align: center;
   position: relative;
   padding-top: 64px;
 }
 
-.header-container{
+.header-container {
   position: relative;
   z-index: 2;
   text-align: center;
   color: white;
 }
 
-.header-text-container{
+.header-text-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,29 +79,41 @@ html {
   flex-wrap: wrap;
 }
 
-.icon-rock{
+.icon-rock {
   animation: rock 1s ease-in-out infinite alternate;
-  margin-top: 32px; /* same as mt: 4 in MUI (theme spacing = 8px * 4) */
+  margin-top: 32px;
+  /* same as mt: 4 in MUI (theme spacing = 8px * 4) */
 }
 
 
 /* ------------------- body1 section ------------------------ */
-.card-header{
+.card-header {
   display: flex;
-  gap:16px;
+  gap: 16px;
   justify-content: center;
 }
 
 
 /* ------------------- body1 section ------------------------ */
-.body2-container{
+.body2-container {
   padding-top: 60px;
   padding-bottom: 60px;
 }
 
 
+.usa-map-img {
+  width: 100%;
+  height: "auto";
+  /* WebkitMaskImage: "linear-gradient(to right, rgba(0,0,0,1) 95%, rgba(0,0,0,0) 100%)",
+                    WebkitMaskRepeat: "no-repeat",
+                    WebkitMaskSize: "cover",
+                    maskImage: "linear-gradient(to right, rgba(0,0,0,1) 95%, rgba(0,0,0,0) 100%)",
+                    maskRepeat: "no-repeat",
+                    maskSize: "cover", */
+}
+
 /* ------------------- common ------------------------ */
-.grid-card{
+.grid-card {
   padding: 32px;
   text-align: center;
   flex-grow: 1;
@@ -113,6 +127,7 @@ html {
   from {
     transform: rotateY(0deg);
   }
+
   to {
     transform: rotateY(360deg);
   }

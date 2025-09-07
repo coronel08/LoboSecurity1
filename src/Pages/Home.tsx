@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { Box, Container, Divider, Grid, Paper, Typography } from "@mui/material";
+import { Box, Container, Divider, Grid, Paper, Typography, useMediaQuery, useTheme } from "@mui/material";
 import PublicIcon from "@mui/icons-material/Public";
 import SecurityIcon from "@mui/icons-material/Security";
 import CalendarIcon from "@mui/icons-material/CalendarMonth";
@@ -15,9 +15,14 @@ import secGuard from "../assets/secCouple.jpg";
 import lionsgate from "../assets/lionsgate.png";
 import appleLogo from "../assets/Apple_logo_black.png";
 import sonyLogo from "../assets/Sony_logo.png";
+import usaMap from "../assets/USAMAP.jpg";
 import AccordionCard from "../Components/AccordionCard";
+import GridCard from "../Components/Card";
 
 function Home() {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
     <>
       <Helmet>
@@ -85,13 +90,7 @@ function Home() {
         <Box component="section" sx={{ background: "white", color: "darkblue", px: { xs: 3, sm: 2, lg: 20 }, py: 5 }}>
           <Grid container spacing={4}>
             {/* -------- */}
-            <GridCard>
-              <Box className="card-header">
-                <Typography variant="h5" gutterBottom>
-                  On Call Services
-                </Typography>
-                <SecurityIcon sx={{ mr: 1 }} />
-              </Box>
+            <GridCard title="On Call Services" icon={<SecurityIcon sx={{ mr: 1 }} />}>
               <Typography variant="body2">
                 Our licensed security professionals are available 24/7 to respond quickly to incidents at your property,
                 business, or facility. Whether it’s an alarm response or urgent site coverage, our team ensures peace of
@@ -99,13 +98,7 @@ function Home() {
               </Typography>
             </GridCard>
             {/* ---------- */}
-            <GridCard>
-              <Box className="card-header">
-                <Typography variant="h5" gutterBottom>
-                  Weekend Services
-                </Typography>
-                <CalendarIcon sx={{ mr: 1 }} />
-              </Box>
+            <GridCard title="Weekend Services:" icon={<CalendarIcon sx={{ mr: 1 }} />}>
               <Typography variant="body2">
                 We provide reliable weekend and after-hours coverage to protect businesses, warehouses, and commercial
                 properties when they are most vulnerable. Our patrol units perform thorough site checks, deter
@@ -113,13 +106,7 @@ function Home() {
               </Typography>
             </GridCard>
             {/* --------- */}
-            <GridCard>
-              <Box className="card-header">
-                <Typography variant="h5" gutterBottom color="">
-                  Patrol Checks
-                </Typography>
-                <CameraIcon sx={{ mr: 1 }} />
-              </Box>
+            <GridCard title="Patrol Checks" icon={<CameraIcon sx={{ mr: 1 }} />}>
               <Typography variant="body2">
                 Regular mobile patrols are conducted throughout the night to monitor docks, retail centers, office
                 buildings, and industrial yards. Officers document activity, secure access points, and keep detailed
@@ -159,7 +146,7 @@ function Home() {
               </Box>
             </AccordionCard>
             <AccordionCard defaultExpanded={false} title="Services Offered:">
-              <Box sx={{ display: { md: "flex" }, gap: 30 }}>
+              <Box sx={{ display: { md: "flex" }, justifyContent: "center", gap: 10 }}>
                 <ul>
                   <li>Daily Patrols</li>
                   <li>Safety Escorts</li>
@@ -175,13 +162,18 @@ function Home() {
               </Box>
             </AccordionCard>
             <AccordionCard defaultExpanded={false} title="Areas We Serve:">
-              <Box sx={{ display: { md: "flex" }, gap: 30 }}>
+              <Box sx={{ display: { md: "flex" }, gap: 10, alignItems: "center", justifyContent: "center" }}>
+                <Box
+                  component="img"
+                  className="usa-map-image"
+                  src={usaMap}
+                  alt="Security team"
+                  sx={{ maxWidth: { xs: "100%", md: "500px" } }}
+                />
                 <ul>
                   <li>Greater Los Angeles County</li>
                   <li>Long Beach County</li>
                   <li>Orange County</li>
-                </ul>
-                <ul>
                   <li>Riverside County</li>
                   <li>San Diego County</li>
                 </ul>
@@ -190,8 +182,11 @@ function Home() {
           </>
         </Container>
         <Box sx={{ paddingY: 10 }}>
+          <Typography variant="h3" sx={{ textAlign: "center", pb: 8, px: 1, fontWeight: "800" }}>
+            {isSmallScreen ? "Clients:" : "Clients Serviced:"}
+          </Typography>
           <Marquee gradient={false} speed={50}>
-            <Box sx={{ display: "flex", gap: 10 }}>
+            <Box sx={{ display: "flex", gap: { xs: 20, md: 40 } }}>
               <img src={appleLogo} height="150" />
               <img src={lionsgate} height="150" />
               <img src={sonyLogo} height="150" />
@@ -273,17 +268,3 @@ function Home() {
 }
 
 export default Home;
-
-type GridCardProps = {
-  children: React.ReactNode;
-};
-
-function GridCard({ children }: GridCardProps) {
-  return (
-    <Grid size={{ xs: 12, sm: 6, lg: 4 }}>
-      <Paper elevation={3} className="grid-card">
-        {children}
-      </Paper>
-    </Grid>
-  );
-}
