@@ -86,7 +86,7 @@ function Home() {
         </Container>
 
         {/* Body section */}
-        <Box component="section" sx={{ background: "white", color: "darkblue", px: { xs: 3, sm: 2, lg: 20 }, py: 5 }}>
+        <Box component="section" sx={{ background: "white", px: { xs: 3, sm: 2, lg: 20 }, py: 5 }}>
           <Grid container spacing={4}>
             {/* -------- */}
             <GridCard title="On Call Services" icon={<SecurityIcon sx={{ mr: 1 }} />}>
