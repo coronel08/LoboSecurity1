@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { Box, Container, Divider, Grid, Paper, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Container, Divider, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import PublicIcon from "@mui/icons-material/Public";
 import SecurityIcon from "@mui/icons-material/Security";
 import CalendarIcon from "@mui/icons-material/CalendarMonth";

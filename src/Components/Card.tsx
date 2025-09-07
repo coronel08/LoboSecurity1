@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Box, Grid, Paper, Typography } from "@mui/material";
 
 type GridCardProps = {
@@ -15,6 +15,7 @@ function GridCard({ title, icon, children }: GridCardProps) {
           <Typography variant="h5" gutterBottom>
             {title}
           </Typography>
+          {icon}
         </Box>
         {children}
       </Paper>
