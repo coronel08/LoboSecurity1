@@ -10,7 +10,8 @@ import Marquee from "react-fast-marquee";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
-import secGuard from "../assets/secCouple.jpg";
+// import secGuard from "../assets/secCouple.jpg";
+import secGuard from "../assets/lobo-sec-1.jpg";
 import lionsgate from "../assets/lionsgate.png";
 import appleLogo from "../assets/Apple_logo_black.png";
 import sonyLogo from "../assets/Sony_logo.png";
@@ -21,6 +22,8 @@ import GridCard from "../Components/Card";
 function Home() {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
+
+  console.log("is small screen", isSmallScreen);
 
   return (
     <>
@@ -44,7 +47,7 @@ function Home() {
         <Container
           maxWidth={false}
           className="header-content"
-          sx={{ height: { xs: "300px", sm: "500px", lg: "650px" } }}>
+          sx={{ height: { xs: "475px", sm: "500px", lg: "650px" } }}>
           {/* Image section with overlay */}
           <>
             {/* <Box
@@ -67,7 +70,7 @@ function Home() {
             {/* Dark Overlay */}
             <Box
               className="main-body-overlay"
-              sx={{ backgroundColor: { xs: "rgba(0, 0, 0, 0.4)", md: "rgba(0, 0, 0, 0.7)" } }}
+              sx={{ backgroundColor: { xs: "rgba(0, 0, 0, 0.6)", md: "rgba(0, 0, 0, 0.7)" } }}
             />
           </>
 
@@ -182,7 +185,7 @@ function Home() {
         </Container>
         <Box sx={{ paddingY: 10 }}>
           <Typography variant="h3" sx={{ textAlign: "center", pb: 8, px: 1, fontWeight: "800" }}>
-            {isSmallScreen ? "Clients:" : "Clients Serviced:"}
+            Trusted By:
           </Typography>
           <Marquee gradient={false} speed={50}>
             <Box sx={{ display: "flex", gap: { xs: 20, md: 40 } }}>
