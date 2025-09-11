@@ -65,7 +65,7 @@ function Home() {
               src={secGuard}
               alt="Security"
               className="main-body"
-              sx={{ objectPosition: { xs: "center", md: "top" } }} // fine-grained positioning
+              sx={{ objectPosition: { xs: "center", md: "center" } }} // fine-grained positioning
             />
             {/* Dark Overlay */}
             <Box
@@ -174,7 +174,7 @@ function Home() {
                 />
                 <ul>
                   <li>Greater Los Angeles County</li>
-                  <li>Long Beach County</li>
+                  <li>Ventura County</li>
                   <li>Orange County</li>
                   <li>Riverside County</li>
                   <li>San Diego County</li>
