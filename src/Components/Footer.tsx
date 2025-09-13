@@ -12,7 +12,10 @@ function Footer() {
         alignItems: "center",
       }}>
       <Typography>
-        Contact us: <a href="mailto:info@cloud6group.com">info@cloud6group.com</a>
+        Made by:{" "}
+        <a href="http://portfolio.fdlme.com/" style={{ color: "white" }}>
+          Fidel Coronel
+        </a>
       </Typography>
     </BottomNavigation>
   );
